@@ -63,6 +63,7 @@ define([
 
 				case "u": // Extended year. Need to be implemented.
 				case "U": // Cyclic year name. Need to be implemented.
+					throw new Error( "Not implemented" );
 
 				// Quarter
 				case "Q":
