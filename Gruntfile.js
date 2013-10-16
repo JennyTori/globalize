@@ -66,8 +66,10 @@ module.exports = function(grunt) {
 			}
 		},
 		qunit: {
-			options: {
-				urls: [ "http://localhost:<%= connect.options.port %>/index.html" ]
+			all: {
+				options: {
+					urls: [ "http://localhost:<%= connect.options.port %>/index.html" ]
+				}
 			}
 		},
 		watch: {
