@@ -38,7 +38,7 @@ module.exports = function(grunt) {
 				}
 			},
 			test: {
-				src: [ "test/*.js" ],
+				src: [ "test/*.js", "test/spec/**/*.js" ],
 				options: {
 					jshintrc: "test/.jshintrc"
 				}
@@ -65,15 +65,13 @@ module.exports = function(grunt) {
 				}
 			}
 		},
-		mocha: {
-			all: {
-				options: {
-					urls: [ "http://localhost:<%= connect.options.port %>/index.html" ]
-				}
+		qunit: {
+			options: {
+				urls: [ "http://localhost:<%= connect.options.port %>/index.html" ]
 			}
 		},
 		watch: {
-			files: [ "src/*.js", "test/spec/*.js", "test/*.html" ],
+			files: [ "src/*.js", "test/spec/**/*.js", "test/*.html" ],
 			tasks: [ "jshint", "test" ]
 		},
 		clean: {
@@ -87,10 +85,10 @@ module.exports = function(grunt) {
 
 	grunt.registerTask( "test", [
 		"connect:test",
-		"mocha"
+		"qunit"
 	]);
 
 	// Default task.
-	grunt.registerTask( "default", [ "jshint", "clean", "uglify", "qunit" ] );
+	grunt.registerTask( "default", [ "jshint", "test" ] );
 
 };

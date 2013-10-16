@@ -14,6 +14,6 @@ require([
 	"./spec/datetime/format"
 
 ], function() {
-	mocha.run();
+	// TODO why can't use this instead of autostart? QUnit.start();
 });
 
