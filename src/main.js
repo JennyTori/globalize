@@ -44,6 +44,24 @@ define([
 		return value;
 	};
 
+	// Parse date FIXME description
+	// @value [Date]
+	// @patterns [Array] Array of patterns, each one is a String. For more info
+  // see datetime/parse_date.js
+	// @locale [String]
+	Globalize.parseDate = function( value, patterns, locale ) {
+		locale = getLocale( locale );
+
+		if ( value instanceof Date ) {
+			value = datetimeFormat( value, pattern, locale );
+		} else if ( typeof value === "number" ) {
+			// TODO value = numberFormat( value, pattern, locale );
+			throw new Error("Number Format not implemented yet");
+		}
+
+		return value;
+	};
+
 	return Globalize;
 
 });
