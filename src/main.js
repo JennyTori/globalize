@@ -11,18 +11,12 @@ define([
 
 	var Globalize = {};
 
-	// Load resolved cldr data.
+	// Load resolved or unresolved cldr data.
 	// @json [JSON]
 	//
 	// Somewhat equivalent to previous Globalize.addCultureInfo(...).
 	Globalize.load = function( json ) {
 		Cldr.load( json );
-	};
-
-	// Load unresolved cldr data.
-	// @json [JSON]
-	Globalize.loadUnresolved = function( json ) {
-		Cldr.loadUnresolved( json );
 	};
 
 	// Set default locale.
