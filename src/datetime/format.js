@@ -65,8 +65,6 @@ define([
 					}
 					break;
 
-				case "Y": // Need to be implemented. See http://www.unicode.org/reports/tr35/tr35-dates.html#Week_Data
-
 				case "u": // Extended year. Need to be implemented.
 				case "U": // Cyclic year name. Need to be implemented.
 					throw new Error( "Not implemented" );
