@@ -343,8 +343,8 @@ define([
 
 	test( "should format hour (jj) using preferred hour format for the locale (h, H, K, or k) with padding", function() {
 		equal( Globalize.format( date1, "jj" ), "09", "" );
-		equal( Globalize.format( date2, "jj" ), "17", "" );
-		equal( Globalize.format( new Date( 0, 0, 0, 0 ), "jj" ), "24", "" );
+		equal( Globalize.format( date2, "jj" ), "05", "" );
+		equal( Globalize.format( new Date( 0, 0, 0, 0 ), "jj" ), "12", "" );
 	});
 
 	/**
