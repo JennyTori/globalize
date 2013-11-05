@@ -7,12 +7,14 @@ define([
 	"json!fixtures/cldr/supplemental/weekData.json"
 ], function( Cldr, tokenizer, enCaGregorian, likelySubtags, timeData, weekData ) {
 
+	var cldr;
+
 	Cldr.load( enCaGregorian );
 	Cldr.load( likelySubtags );
 	Cldr.load( timeData );
 	Cldr.load( weekData );
 
-	var cldr = new Cldr( "en" );
+	cldr = new Cldr( "en" );
 
 	module( "Datetime Tokenizer" );
 
