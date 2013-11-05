@@ -34,7 +34,7 @@ define([
 			tokens = [],
 			widths = [ "abbreviated", "wide", "narrow" ];
 
-		valid = arrayEvery( pattern.match( datetimePatternRe), function( current ) {
+		valid = arrayEvery( pattern.match( datetimePatternRe ), function( current ) {
 			var chr, length, tokenRe,
 				token = {};
 
