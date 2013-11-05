@@ -6,7 +6,7 @@ define(function() {
 	 * Return the 
 	 */
 	return function( date, unit ) {
-		date = new Date( date );
+		date = new Date( date.getTime() );
 		switch( unit ) {
 			case "year":
 				date.setMonth( 0 );
