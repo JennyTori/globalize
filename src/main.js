@@ -1,7 +1,10 @@
 define([
 	"cldr",
-	"./datetime/format"
-], function( Cldr, datetimeFormat ) {
+	"./datetime/format",
+	"./datetime/parse",
+	"./util/always_array",
+	"./util/array/some"
+], function( Cldr, datetimeFormat, datetimeParse, alwaysArray, arraySome ) {
 
 	var defaultLocale;
 
@@ -50,16 +53,30 @@ define([
   // see datetime/parse_date.js
 	// @locale [String]
 	Globalize.parseDate = function( value, patterns, locale ) {
+		var date;
 		locale = getLocale( locale );
 
-		if ( value instanceof Date ) {
-			value = datetimeFormat( value, pattern, locale );
-		} else if ( typeof value === "number" ) {
-			// TODO value = numberFormat( value, pattern, locale );
-			throw new Error("Number Format not implemented yet");
+		if ( typeof value !== "string" ) {
+			throw new Error( "invalid value (" + value + "), string expected" );
 		}
 
-		return value;
+		if ( !patterns ) {
+			// FIXME patterns = cldr.//what?
+		}
+
+		patterns = alwaysArray( patterns );
+
+		arraySome( patterns, function( pattern ) {
+
+			if ( typeof pattern !== "string" ) {
+				throw new Error( "invalid pattern (" + pattern + "), string expected" );
+			}
+
+			date = datetimeParse( value, pattern, locale );
+			return !!date;
+		});
+
+		return date || null;
 	};
 
 	return Globalize;

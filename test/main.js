@@ -12,7 +12,8 @@ require([
 
 	/* datetime */
 	"./spec/datetime/format",
-	"./spec/datetime/tokenizer"
+	"./spec/datetime/tokenizer",
+	"./spec/datetime/parser"
 
 ], function() {
 	QUnit.start();
